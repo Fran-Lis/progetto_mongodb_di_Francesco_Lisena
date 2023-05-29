@@ -1,0 +1,46 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <div class="d-flex justify-content-between">
+        <div class="ms-4"></div>
+        <h2 class="text-center pt-4">Ordini aperti</h2>
+        <a href="{% url 'signout' %}" class="btn btn-primary my-3 me-2">Logout</a>
+    </div>
+    <div class="my-3 d-flex justify-content-around">
+        <div class="orderC bg-light p-3">
+            <h3>Ordini di vendita</h3>
+            <div class="orderCIn">
+                {% for sellOrder in sellOrders %} 
+                <div class="border border-dark p-1 mt-2">
+                    <p>quantità: {{sellOrder.quantity}}</p>
+                    <p>prezzo: {{sellOrder.price}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class=" orderC bg-light p-3">
+            <h3>Ordini di acquisto</h3>
+            <div class="orderCIn">
+                {% for buyOrder in buyOrders %}
+                <div class="border border-dark p-1 mt-2">
+                    <p>quantità: {{buyOrder.quantity}}</p>
+                    <p>prezzo: {{buyOrder.price}}</p>
+                </div> 
+                {% endfor %}
+            </div>
+        </div>
+    </div> 
+    <div class="bg-light mt-4 mx-5 p-1">
+        <p>Btc: {{profile.btc}}</p>
+        <p>Profitto: €{{profile.profit}}</p>    
+        <form method="POST">{% csrf_token %}
+            <label for="{{form.typology.id_for_label}}">Operazione</label>
+            {{form.typology}}
+            <label class="ms-2" for="{{form.quantity.id_for_label}}">Quantità</label>
+            {{form.quantity}}
+            <label class="ms-2" for="{{form.price.id_for_label}}">Prezzo</label>
+            {{form.price}}
+            <button class="ms-2 btn btn-primary" type="submit">Conferma</button>
+        </form>
+    </div> 
+{% endblock %}

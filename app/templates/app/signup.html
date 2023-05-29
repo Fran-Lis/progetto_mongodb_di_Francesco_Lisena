@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<article>
+    <div class="d-flex justify-content-between">
+        <div class="ms-4"></div>
+        <h2 class="text-center pt-4">Regitrazione</h2>
+        <a class="btn btn-primary my-3 me-2" href="{% url 'signin' %}">Indietro</a>
+    </div>   
+    <form class="my-5 d-flex flex-column p-5 bg-light fContainer" method="POST">{% csrf_token %} 
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+        <label for="psw1">Password</label>
+        <input type="password" id="psw1" name="psw1">
+        <label for="psw2">Password confirm</label>
+        <input type="password" id="psw2" name="psw2">
+        <button class="btn btn-primary align-self-end my-2" type="submit">Invia</button>
+    </form>
+</article>
+{% endblock %}

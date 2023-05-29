@@ -1,0 +1,16 @@
+.fContainer{
+    width: 70%;
+    margin: auto;
+}
+input{
+    margin-bottom: 10px;
+}
+.orderC{
+    width: 30%;
+    height: 500px;
+    overflow-y: hidden;
+}
+.orderCIn{
+    overflow-y: scroll;
+    height: 430px;
+}

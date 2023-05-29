@@ -1,0 +1,39 @@
+# Python
+*.pyc
+*~
+__pycache__
+
+#Env
+.env
+env/
+venv/
+
+#static folder at project root
+/static/
+
+#macOs
+._*
+.DS_Store
+.fseventsd
+.Spotlight-V100
+
+#Windows
+Thumbs.db*
+ethumbs*.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+#Visual Studio
+.vscode/
+.history/
+*.code-workspace
+
+# Database
+journal/
+diagnostic.data/
+WiredTiger*
+collection*
+index*
+mongod.lock
+storage.bson
+*.wt
