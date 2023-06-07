@@ -12,8 +12,9 @@
             <div class="orderCIn">
                 {% for sellOrder in sellOrders %} 
                 <div class="border border-dark p-1 mt-2">
+                    <!--<p>tipologia: {{sellOrder.typology}}</p>-->
                     <p>quantità: {{sellOrder.quantity}}</p>
-                    <p>prezzo: {{sellOrder.price}}</p>
+                    <p>prezzo unitario: {{sellOrder.price}}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -24,7 +25,7 @@
                 {% for buyOrder in buyOrders %}
                 <div class="border border-dark p-1 mt-2">
                     <p>quantità: {{buyOrder.quantity}}</p>
-                    <p>prezzo: {{buyOrder.price}}</p>
+                    <p>prezzo unitario: {{buyOrder.price}}</p>
                 </div> 
                 {% endfor %}
             </div>
@@ -38,7 +39,7 @@
             {{form.typology}}
             <label class="ms-2" for="{{form.quantity.id_for_label}}">Quantità</label>
             {{form.quantity}}
-            <label class="ms-2" for="{{form.price.id_for_label}}">Prezzo</label>
+            <label class="ms-2" for="{{form.price.id_for_label}}">Prezzo unitario</label>
             {{form.price}}
             <button class="ms-2 btn btn-primary" type="submit">Conferma</button>
         </form>
