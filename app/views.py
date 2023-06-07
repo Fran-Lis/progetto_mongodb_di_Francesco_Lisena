@@ -40,6 +40,8 @@ def signout(request):
     logout(request)
     return redirect('signin')
 
+# N.B. viene effettuata una lettura del database tramite PyMongo in quanto un bug di Djongo impedisce l'uso del metodo filter(). 
+# Inoltre viene effettuata una ulteriore lettura tramite Djongo in quanto utilizzando quella attraverso PyMongo viene inspiegabilmente restituito un errore relativo alla quantity.
 def mainPage(request):
     sellOrders = db.app_order.find({"active": True, "typology": "sell"}).sort([("price", pymongo.ASCENDING)])
     buyOrders = db.app_order.find({"active": True, "typology": "buy"}).sort([("price", pymongo.DESCENDING)])
